@@ -1,26 +1,24 @@
 package desktop.pages;
 
-import abstractClasses.page.AbstractDesktopPage;
+import abstractClasses.page.AbstractPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends AbstractDesktopPage {
+public class HomePage extends AbstractPage {
     private static final String HOMEPAGE_TITLE_REGEX = "Electronics Site | Homepage";
+
+    @FindBy(xpath = ".//div[contains(@class,'js-site-logo')]")
+    private WebElement siteLogo;
 
     @FindBy(css = "a+div>div[class='banner banner__component--responsive']")
     private WebElement bannerSlider;
 
-    @FindBy(css = ".desktop__nav .nav-items-total")
-    private WebElement minicartItemsCount;
+    public boolean isSiteLogoDisplayed(){
+        return siteLogo.isDisplayed();
+    }
 
     public boolean isBannerDisplayed(){
         return bannerSlider.isDisplayed();
-    }
-
-    public boolean isItemsCountInMinicartEqualTo(int givenAmount){
-        String itemCountText = minicartItemsCount.getText();
-        int itemCount = Integer.parseInt(itemCountText.substring(0, itemCountText.length() - 6));
-        return itemCount == givenAmount;
     }
 
     @Override

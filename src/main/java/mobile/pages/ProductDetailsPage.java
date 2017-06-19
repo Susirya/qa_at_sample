@@ -1,6 +1,6 @@
 package mobile.pages;
 
-import abstractClasses.page.AbstractMobilePage;
+import abstractClasses.page.AbstractPage;
 import com.google.common.base.Predicate;
 import mobile.fragments.AddedToCartPopupFragment;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.jboss.arquillian.graphene.Graphene.waitGui;
 
-public class ProductDetailsPage extends AbstractMobilePage {
+public class ProductDetailsPage extends AbstractPage {
     private static final String PRODUCT_DETAILS_PAGE_TITLE_REGEX = "(.*)| Open Catalogue | Electronics Site";
 
     @FindBy(className = "name")

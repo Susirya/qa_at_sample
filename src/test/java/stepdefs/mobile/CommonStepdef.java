@@ -1,11 +1,11 @@
 package stepdefs.mobile;
 
+import abstractClasses.fragment.HeaderFragmentInterface;
 import com.google.common.base.Predicate;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import mobile.fragments.HeaderFragment;
 import mobile.pages.HomePage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
@@ -34,7 +34,7 @@ public class CommonStepdef {
 
     @Then("^On the home page I can view logo, Sign in Register, icon, search field, navigation menu, banner$")
     public void onTheHomePageICanViewLogoSignInRegisterIconSearchFieldNavigationMenuBanner() {
-        HeaderFragment headerFragment = homePage.getHeaderFragment();
+        HeaderFragmentInterface headerFragment = homePage.getHeaderFragment();
         assertTrue("Logo is not visible.", homePage.isSiteLogoDisplayed());
         assertTrue("Sign in or Register link is not visible.", headerFragment.isSignInLinkDisplayed());
         assertTrue("Search field is not visible.", headerFragment.isSearchBarDisplayed());
@@ -56,7 +56,7 @@ public class CommonStepdef {
     @And("^mini cart icon on home page shows (\\d+) items in cart$")
     public void miniCartIconOnHomePageShowsItemsInCart(int expectedAmount) {
         assertTrue("Product quantitty in minicart is incorrect! Expected " +
-                expectedAmount, homePage.isItemsCountInMinicartEqualTo(expectedAmount));
+                expectedAmount, homePage.getHeaderFragment().isItemsCountInMinicartEqualTo(expectedAmount));
 
     }
 }

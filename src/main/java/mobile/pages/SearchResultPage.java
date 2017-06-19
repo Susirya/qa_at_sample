@@ -1,6 +1,6 @@
 package mobile.pages;
 
-import abstractClasses.page.AbstractMobilePage;
+import abstractClasses.page.AbstractPage;
 import mobile.fragments.AddedToCartPopupFragment;
 import mobile.fragments.SearchProductItemFragment;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SearchResultPage extends AbstractMobilePage {
+public class SearchResultPage extends AbstractPage {
     private static final String PATH = "search/";
     private static final String SEARCHPAGE_TITLE_REGEX = "Search (.*)| Electronics Site";
 

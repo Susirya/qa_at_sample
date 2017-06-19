@@ -1,12 +1,13 @@
 package mobile.fragments;
 
 import abstractClasses.fragment.AbstractFragment;
+import abstractClasses.fragment.HeaderFragmentInterface;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static org.jboss.arquillian.graphene.Graphene.waitGui;
 
-public class HeaderFragment extends AbstractFragment {
+public class HeaderFragment extends AbstractFragment implements HeaderFragmentInterface {
     @FindBy(css = ".js-mainHeader")
     private WebElement rootElement;
 
@@ -30,6 +31,9 @@ public class HeaderFragment extends AbstractFragment {
 
     @FindBy(xpath = ".//nav[contains(@class,'navigation--bottom')]")
     private WebElement navigationMenu;
+
+    @FindBy(css = ".mobile__nav__row--table-row .nav-items-total")
+    private WebElement minicartItemsCount;
 
 
     public void openMenu() {
@@ -83,6 +87,11 @@ public class HeaderFragment extends AbstractFragment {
         openSearchBar();
         inputField.sendKeys(query);
         inputField.submit();
+    }
+
+    public boolean isItemsCountInMinicartEqualTo(int givenAmount){
+        int itemCount = Integer.parseInt(minicartItemsCount.getText());
+        return itemCount == givenAmount;
     }
 
     @Override

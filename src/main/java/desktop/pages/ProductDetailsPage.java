@@ -1,6 +1,6 @@
 package desktop.pages;
 
-import abstractClasses.page.AbstractDesktopPage;
+import abstractClasses.page.AbstractPage;
 import com.google.common.base.Predicate;
 import desktop.fragments.AddedToCartPopupFragment;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.jboss.arquillian.graphene.Graphene.waitGui;
 
-public class ProductDetailsPage extends AbstractDesktopPage {
+public class ProductDetailsPage extends AbstractPage {
     private static final String PRODUCT_DETAILS_PAGE_TITLE_REGEX = "(.*)| Open Catalogue | Electronics Site";
 
     @FindBy(className = "name")

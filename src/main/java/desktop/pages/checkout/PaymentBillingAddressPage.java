@@ -1,13 +1,13 @@
 package desktop.pages.checkout;
 
-import abstractClasses.page.AbstractDesktopPage;
+import abstractClasses.page.AbstractPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Map;
 
-public class PaymentBillingAddressPage extends AbstractDesktopPage {
+public class PaymentBillingAddressPage extends AbstractPage {
     private static final String PATH = "/checkout/multi/sop/response";
     private static final String TITLE_REGEX = "Checkout | Electronics Site";
 

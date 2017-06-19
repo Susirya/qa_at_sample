@@ -1,10 +1,10 @@
 package desktop.pages;
 
-import abstractClasses.page.AbstractDesktopPage;
+import abstractClasses.page.AbstractPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CartPage extends AbstractDesktopPage {
+public class CartPage extends AbstractPage {
     private static final String PATH = "cart";
     private static final String CARTPAGE_TITLE_REGEX = "Your Shopping Cart | Electronics Site";
 

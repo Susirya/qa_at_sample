@@ -1,15 +1,13 @@
 package desktop.fragments;
 
 import abstractClasses.fragment.AbstractFragment;
+import abstractClasses.fragment.HeaderFragmentInterface;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HeaderFragment extends AbstractFragment {
+public class HeaderFragment extends AbstractFragment implements HeaderFragmentInterface {
     @FindBy(css = ".js-mainHeader")
     private WebElement rootElement;
-
-    @FindBy(xpath = ".//div[contains(@class,'js-site-logo')]")
-    private WebElement siteLogo;
 
     @FindBy(xpath = ".//ul[contains(@class,'nav__links--account')]")
     private WebElement signInLink;
@@ -23,9 +21,8 @@ public class HeaderFragment extends AbstractFragment {
     @FindBy(xpath = ".//nav[contains(@class,'navigation--bottom')]")
     private WebElement navigationMenu;
 
-    public boolean isSiteLogoDisplayed(){
-        return siteLogo.isDisplayed();
-    }
+    @FindBy(css = ".desktop__nav .nav-items-total")
+    private WebElement minicartItemsCount;
 
     public boolean isSignInLinkDisplayed(){
         return signInLink.isDisplayed();
@@ -42,6 +39,12 @@ public class HeaderFragment extends AbstractFragment {
     public void searchProduct(String query){
         inputField.sendKeys(query);
         inputField.submit();
+    }
+
+    public boolean isItemsCountInMinicartEqualTo(int givenAmount){
+        String itemCountText = minicartItemsCount.getText();
+        int itemCount = Integer.parseInt(itemCountText.substring(0, itemCountText.length() - 6));
+        return itemCount == givenAmount;
     }
 
     @Override

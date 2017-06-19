@@ -1,8 +1,8 @@
 package mobile.pages.checkout;
 
-import abstractClasses.page.AbstractMobilePage;
+import abstractClasses.page.AbstractPage;
 
-public class CheckoutLoginPage extends AbstractMobilePage {
+public class CheckoutLoginPage extends AbstractPage {
     private static final String PATH = "/login/checkout";
     private static final String PRODUCT_DETAILS_PAGE_TITLE_REGEX = "(.*)| Open Catalogue | Electronics Site";
 

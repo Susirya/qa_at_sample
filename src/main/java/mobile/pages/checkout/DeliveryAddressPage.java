@@ -1,6 +1,6 @@
 package mobile.pages.checkout;
 
-import abstractClasses.page.AbstractMobilePage;
+import abstractClasses.page.AbstractPage;
 import mobile.fragments.CheckoutOrderSummaryFragment;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 import static org.jboss.arquillian.graphene.Graphene.waitGui;
 
-public class DeliveryAddressPage extends AbstractMobilePage {
+public class DeliveryAddressPage extends AbstractPage {
     private static final String PATH = "/checkout/multi/delivery-address/add";
     private static final String TITLE_REGEX = "Checkout | Electronics Site";
 
