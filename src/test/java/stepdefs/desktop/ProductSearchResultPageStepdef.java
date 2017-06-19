@@ -5,6 +5,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import desktop.pages.SearchResultPage;
+import org.jboss.arquillian.drone.api.annotation.Drone;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -12,11 +14,15 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class ProductSearchResultPageStepdef {
+
+    @Drone
+    private WebDriver browser;
+
     private SearchResultPage searchResultsPage;
 
     @Given("^I am redirected to a Search page$")
     public void I_am_redirected_to_a_Search_page_() throws Throwable  {
-        searchResultsPage = new SearchResultPage(Hooks.getBrowser());
+        searchResultsPage = new SearchResultPage();
     }
 
     @When("^I find (\\d+) products with name \"([^\"]*)\"$")
@@ -32,3 +38,4 @@ public class ProductSearchResultPageStepdef {
         throw new PendingException();
     }
 }
+

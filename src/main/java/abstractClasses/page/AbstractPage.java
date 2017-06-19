@@ -1,36 +1,41 @@
 package abstractClasses.page;
 
 import desktop.fragments.HeaderFragment;
-import helpers.Browser;
 import helpers.PropertyLoader;
-import org.openqa.selenium.support.PageFactory;
+import org.jboss.arquillian.drone.api.annotation.Drone;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public abstract class AbstractPage {
-    private static final String BASE_URL = PropertyLoader.getInstanse().getPropertyValue("base.url");
-    protected Browser browser;
-    protected HeaderFragment headerFragment;
+public class AbstractPage {
+    protected static final String BASE_URL = PropertyLoader.getInstanse().getPropertyValue("base.url");
 
-    public AbstractPage(Browser browser) {
-        this.browser = browser;
-        PageFactory.initElements(browser, this);
-        headerFragment = PageFactory.initElements(browser, HeaderFragment.class);
-        headerFragment.init(browser);
-    }
+    @Drone
+    protected WebDriver browser;
+
+    @FindBy(id = "header")
+    private HeaderFragment headerFragment;
+
+//   DemoLab
+//    @FindBy(className = "navMainList")
+//   WX - TP
+    @FindBy(id = "nav_main")
+    private WebElement navigationMenu;
 
     public String getTitle() {
         return browser.getTitle();
-    }
-
-    public Browser getBrowser() {
-        return browser;
     }
 
     public HeaderFragment getHeaderFragment() {
         return headerFragment;
     }
 
+    public WebElement getNavigationMenu() {
+        return navigationMenu;
+    }
+
     public void visit(){
-        browser.navigate().to(BASE_URL + getPath());
+        browser.get(BASE_URL + getPath());
     }
 
     protected String getPath(){

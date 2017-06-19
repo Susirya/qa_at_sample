@@ -1,11 +1,9 @@
 package desktop.pages;
 
 import abstractClasses.page.AbstractPage;
-import helpers.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
@@ -16,10 +14,6 @@ public class SearchResultPage extends AbstractPage {
     @FindBy(className = "product__list--wrapper")
     WebElement productList;
 
-    public SearchResultPage(Browser browser) {
-        super(browser);
-        PageFactory.initElements(browser, this);
-    }
 
     public int searchResultsQuantityOnPage(){
         return getProductsItemList().size();

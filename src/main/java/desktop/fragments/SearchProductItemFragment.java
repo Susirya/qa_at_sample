@@ -10,14 +10,4 @@ public class SearchProductItemFragment extends AbstractFragment {
     WebElement root;
 
 
-
-    @Override
-    protected Class getFragmentClass(){
-        return this.getClass();
-    }
-
-    @Override
-    protected WebElement getFragmentRoot() {
-        return root;
-    }
 }
