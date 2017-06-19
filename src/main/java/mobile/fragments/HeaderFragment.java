@@ -80,6 +80,7 @@ public class HeaderFragment extends AbstractFragment {
     }
 
     public void searchProduct(String query){
+        openSearchBar();
         inputField.sendKeys(query);
         inputField.submit();
     }
