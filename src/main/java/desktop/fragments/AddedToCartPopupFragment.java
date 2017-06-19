@@ -20,29 +20,18 @@ public class AddedToCartPopupFragment extends AbstractFragment{
     private WebElement addToCartItem;
 
     @FindBy(xpath = ".//a[contains(@class,'add-to-cart-button')]")
-    private WebElement addToCartButton;
+    private WebElement checkoutButton;
 
     @FindBy(xpath = ".//a[contains(@class,'js-mini-cart-close-button')]")
     private WebElement continueShoppingButton;
 
-    public WebElement getCloseButton() {
-        return closeButton;
-    }
-
-    public WebElement getPopupTitle() {
-        return popupTitle;
-    }
-
-    public WebElement getAddToCartItem() {
-        return addToCartItem;
-    }
-
-    public WebElement getAddToCartButton() {
-        return addToCartButton;
-    }
-
-    public WebElement getContinueShoppingButton() {
-        return continueShoppingButton;
+    public void clickButtonWithTitle(String givenTitle){
+        if ("Checkout".equals(givenTitle)){
+            checkoutButton.click();
+        }
+        if ("Continue shopping".equals(givenTitle)) {
+            continueShoppingButton.click();
+        }
     }
 
     @Override

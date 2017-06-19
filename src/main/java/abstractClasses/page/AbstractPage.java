@@ -9,9 +9,8 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.jboss.arquillian.graphene.Graphene.waitGui;
 
-public class AbstractPage {
+public abstract class AbstractPage {
     private static final String BASE_URL = PropertyLoader.getInstanse().getPropertyValue("base.url");
-    private static final String HOMEPAGE_TITLE_REGEX = "Electronics Site | Homepage";
 
     @Drone
     protected WebDriver browser;
@@ -32,15 +31,14 @@ public class AbstractPage {
         waitGui().until((Predicate<WebDriver>) webDriver -> isCurrent());
     }
 
+    public void visit(String relativePath){
+        browser.get(BASE_URL + relativePath);
+    }
+
     public boolean isCurrent(){
         return actualTitle().equals(getPageTitleRegex()) || actualTitle().matches(getPageTitleRegex());
     }
 
-    protected String getPageTitleRegex(){
-        return HOMEPAGE_TITLE_REGEX;
-    }
-
-    protected String getPath(){
-        return "";
-    }
+    protected abstract String getPageTitleRegex();
+    protected abstract String getPath();
 }

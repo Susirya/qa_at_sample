@@ -34,6 +34,8 @@ public class SearchResultPage extends AbstractPage {
         return products;
     }
 
+
+
     public boolean isAddedToCartPopupFragmentDisplayed(){
         return addedToCartPopupFragment.isDisplayed();
     }
@@ -41,5 +43,10 @@ public class SearchResultPage extends AbstractPage {
     @Override
     protected String getPageTitleRegex(){
         return SEARCHPAGE_TITLE_REGEX;
+    }
+
+    @Override
+    protected String getPath() {
+        return null;
     }
 }
