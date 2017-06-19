@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HeaderFragment extends AbstractFragment {
+    @FindBy(css = ".js-mainHeader")
+    private WebElement rootElement;
 
     @FindBy(xpath = ".//div[contains(@class,'js-site-logo')]")
     private WebElement siteLogo;
@@ -40,5 +42,10 @@ public class HeaderFragment extends AbstractFragment {
     public void searchProduct(String query){
         inputField.sendKeys(query);
         inputField.submit();
+    }
+
+    @Override
+    protected WebElement getRoot() {
+        return rootElement;
     }
 }

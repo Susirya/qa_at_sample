@@ -1,10 +1,13 @@
 package abstractClasses.page;
 
+import com.google.common.base.Predicate;
 import desktop.fragments.HeaderFragment;
 import helpers.PropertyLoader;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+
+import static org.jboss.arquillian.graphene.Graphene.waitGui;
 
 public class AbstractPage {
     private static final String BASE_URL = PropertyLoader.getInstanse().getPropertyValue("base.url");
@@ -26,6 +29,7 @@ public class AbstractPage {
 
     public void visit(){
         browser.get(BASE_URL + getPath());
+        waitGui().until((Predicate<WebDriver>) webDriver -> isCurrent());
     }
 
     public boolean isCurrent(){

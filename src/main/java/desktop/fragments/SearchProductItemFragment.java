@@ -48,6 +48,11 @@ public class SearchProductItemFragment extends AbstractFragment {
         return addToCartButton;
     }
 
+    @Override
+    protected WebElement getRoot() {
+        return null;
+    }
+
     public String nameText() {
         return name.getText();
     }

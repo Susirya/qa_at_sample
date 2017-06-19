@@ -1,6 +1,7 @@
 package desktop.pages;
 
 import abstractClasses.page.AbstractPage;
+import desktop.fragments.AddedToCartPopupFragment;
 import desktop.fragments.SearchProductItemFragment;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,25 +13,30 @@ public class SearchResultPage extends AbstractPage {
     private static final String SEARCHPAGE_TITLE_REGEX = "Search (.*)| Electronics Site";
 
     @FindBy(className = "product__list--item")
-    List<SearchProductItemFragment> produсts;
+    private List<SearchProductItemFragment> products;
+
+    @FindBy(id = "cboxContent")
+    private AddedToCartPopupFragment addedToCartPopupFragment;
+
 
     public int searchResultsQuantityOnPage(){
-        return produсts.size();
+        return products.size();
     }
 
     public List<SearchProductItemFragment> getProductsWithNamePart(String namePart){
-        List<SearchProductItemFragment> result = produсts.stream()
+        List<SearchProductItemFragment> result = products.stream()
                 .filter(product -> product.nameText().contains(namePart))
                 .collect(Collectors.toList());
         return result;
     }
 
     public List<SearchProductItemFragment> getSearchResultProducts(){
-        return produсts;
+        return products;
     }
 
-
-
+    public boolean isAddedToCartPopupFragmentDisplayed(){
+        return addedToCartPopupFragment.isDisplayed();
+    }
 
     @Override
     protected String getPageTitleRegex(){
