@@ -23,7 +23,6 @@ public enum WebDriverProvider {
                 capabilities.setCapability(ChromeOptions.CAPABILITY, options);
             }
             System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_BINARY_PATH_STRING);
-            System.out.println("*****************************************" + projDir);
             return new ChromeDriver(capabilities);
         }
 

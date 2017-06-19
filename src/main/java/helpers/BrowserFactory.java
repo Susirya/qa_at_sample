@@ -21,7 +21,6 @@ public class BrowserFactory {
 
     public static Browser makeBrowser(String browserName) {
         WebDriver driver = null;
-        System.out.println(browserName);
         if (FIREFOX_STRING.equals(browserName)) {
             driver = WebDriverProvider.FIREFOX.create();
         } else if (CHROME_STRING.equals(browserName)) {
