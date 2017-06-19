@@ -8,7 +8,6 @@ public class CartPage extends AbstractPage {
     private static final String PATH = "cart";
     private static final String CARTPAGE_TITLE_REGEX = "Your Shopping Cart | Electronics Site";
 
-
     // Ugly, but the only possible way with xpath/css
     @FindBy(xpath = "(.//*[text()='Subtotal:']/following::*[contains(@class,'text-right')])[1]")
     private WebElement subtotal;
@@ -16,14 +15,11 @@ public class CartPage extends AbstractPage {
     @FindBy(xpath = ".//*[text()='Order Total']/following::*[contains(@class,'col-xs-6 cart-totals-right text-right')]")
     private WebElement grandTotal;
 
-    @FindBy(xpath = ".//button[contains(@class, 'js-continue-checkout-button')]")
+    @FindBy(css = ".js-continue-checkout-button")
     private WebElement checkoutButton;
 
-    @FindBy(xpath = ".//button[contains(@class, 'js-continue-shopping-button')]")
+    @FindBy(css = ".js-continue-shopping-button")
     private WebElement continueShoppingButton;
-
-
-
 
 
     public boolean isSubtotalEquals(String givenAmount) {
