@@ -10,13 +10,14 @@ public class HomePage extends AbstractPage{
     @FindBy(css = "a+div>div[class='banner banner__component--responsive']")
     private WebElement bannerSlider;
 
-    @FindBy(xpath = ".//div[class='mini-cart-price']")
+    @FindBy(css = ".desktop__nav .nav-items-total")
     private WebElement minicartItemsCount;
 
     public boolean isBannerDisplayed(){
         return bannerSlider.isDisplayed();
     }
-    public boolean isMinicartProductsAmountEqual(int givenAmount){
+
+    public boolean isItemsCountInMinicartEqualTo(int givenAmount){
         String itemCountText = minicartItemsCount.getText();
         int itemCount = Integer.parseInt(itemCountText.substring(0, itemCountText.length() - 6));
         return itemCount == givenAmount;

@@ -11,16 +11,16 @@ public class ConfirmationPage extends AbstractPage {
     private static final String TITLE_REGEX = "Order Confirmation | Electronics Site";
 
     @FindBy(className = "orderTotal")
-    ConfirmationSummaryFragment confirmationSummaryFragment;
+    private ConfirmationSummaryFragment confirmationSummaryFragment;
 
     @FindBy(className = "checkout-success__body__headline")
-    WebElement confirmationMessage;
+    private WebElement confirmationMessage;
 
     @FindBy(xpath = ".//div[@class='checkout-success__body']/p[1]/b")
-    WebElement orderNumber;
+    private WebElement orderNumber;
 
-    @FindBy(xpath = ".//button[@class,'btn--continue-shopping')]")
-    WebElement continueShoppingButton;
+    @FindBy(xpath = ".//button[contains(@class, 'btn--continue-shopping')]")
+    private WebElement continueShoppingButton;
 
     public ConfirmationSummaryFragment getTotalsFragment() {
         return confirmationSummaryFragment;

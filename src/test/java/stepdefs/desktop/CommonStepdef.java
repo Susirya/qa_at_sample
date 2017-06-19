@@ -56,7 +56,7 @@ public class CommonStepdef {
     @And("^mini cart icon on home page shows (\\d+) items in cart$")
     public void miniCartIconOnHomePageShowsItemsInCart(int expectedAmount) {
         assertTrue("Product quantitty in minicart is incorrect! Expected " +
-                expectedAmount, homePage.isMinicartProductsAmountEqual(expectedAmount));
+                expectedAmount, homePage.isItemsCountInMinicartEqualTo(expectedAmount));
 
     }
 }
