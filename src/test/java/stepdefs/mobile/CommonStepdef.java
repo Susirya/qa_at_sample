@@ -35,7 +35,7 @@ public class CommonStepdef {
     @Then("^On the home page I can view logo, Sign in Register, icon, search field, navigation menu, banner$")
     public void onTheHomePageICanViewLogoSignInRegisterIconSearchFieldNavigationMenuBanner() {
         HeaderFragment headerFragment = homePage.getHeaderFragment();
-        assertTrue("Logo is not visible.", headerFragment.isSiteLogoDisplayed());
+        assertTrue("Logo is not visible.", homePage.isSiteLogoDisplayed());
         assertTrue("Sign in or Register link is not visible.", headerFragment.isSignInLinkDisplayed());
         assertTrue("Search field is not visible.", headerFragment.isSearchBarDisplayed());
         assertTrue("Navigation menu is not visible.", headerFragment.isNavigationMenuDisplayed());

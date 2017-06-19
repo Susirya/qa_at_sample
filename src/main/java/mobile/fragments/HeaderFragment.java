@@ -4,15 +4,23 @@ import abstractClasses.fragment.AbstractFragment;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static org.jboss.arquillian.graphene.Graphene.waitGui;
+
 public class HeaderFragment extends AbstractFragment {
     @FindBy(css = ".js-mainHeader")
     private WebElement rootElement;
 
-    @FindBy(xpath = ".//div[contains(@class,'js-site-logo')]")
-    private WebElement siteLogo;
+    @FindBy(css = ".js-toggle-sm-navigation")
+    private WebElement navOpenMenuButton;
 
-    @FindBy(xpath = ".//ul[contains(@class,'nav__links--account')]")
+    @FindBy(xpath = ".//div[@class='close-nav']/button")
+    private WebElement navCloseMenuButton;
+
+    @FindBy(css = ".userSign")
     private WebElement signInLink;
+
+    @FindBy(css = ".js-toggle-xs-search")
+    private WebElement searchButton;
 
     @FindBy(className = "site-search")
     private WebElement searchBar;
@@ -23,15 +31,47 @@ public class HeaderFragment extends AbstractFragment {
     @FindBy(xpath = ".//nav[contains(@class,'navigation--bottom')]")
     private WebElement navigationMenu;
 
-    public boolean isSiteLogoDisplayed(){
-        return siteLogo.isDisplayed();
+
+    public void openMenu() {
+        if (!navCloseMenuButton.isDisplayed()) {
+            navOpenMenuButton.click();
+            waitGui().until().element(signInLink).is().visible();
+        }
+    }
+
+    public void closeMenu() {
+        if (navCloseMenuButton.isDisplayed()) {
+            navCloseMenuButton.click();
+            waitGui().until().element(signInLink).is().not().visible();
+        }
+    }
+
+    public void openSearchBar() {
+        if (!searchBar.isDisplayed()) {
+            searchButton.click();
+            waitGui().until().element(searchBar).is().visible();
+        }
+    }
+
+    public void closeSearchBar() {
+        if (searchBar.isDisplayed()) {
+            searchButton.click();
+            waitGui().until().element(searchBar).is().not().visible();
+        }
     }
 
     public boolean isSignInLinkDisplayed(){
-        return signInLink.isDisplayed();
+        boolean linkVisible = signInLink.isDisplayed();
+        if (!linkVisible) {
+            openMenu();
+            linkVisible = signInLink.isDisplayed();
+            closeMenu();
+        }
+        return linkVisible;
     }
 
     public boolean isSearchBarDisplayed(){
+        openSearchBar();
         return searchBar.isDisplayed();
     }
 
