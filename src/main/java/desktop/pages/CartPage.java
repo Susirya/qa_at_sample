@@ -15,14 +15,12 @@ public class CartPage extends AbstractPage {
     @FindBy(xpath = ".//*[text()='Order Total']/following::*[contains(@class,'col-xs-6 cart-totals-right text-right')]")
     private WebElement grandTotal;
 
-    public boolean isSubtotalEquals(Double givenAmount){
-        double actualAmmount = Double.parseDouble(subtotal.getText());
-        return Double.compare(actualAmmount, givenAmount) == 0;
+    public boolean isSubtotalEquals(String givenAmount) {
+        return givenAmount != null && givenAmount.equals(subtotal.getText());
     }
 
-    public boolean isGrandTotalEquals(Double givenAmount){
-        double actualAmmount = Double.parseDouble(grandTotal.getText());
-        return Double.compare(actualAmmount, givenAmount) == 0;
+    public boolean isGrandTotalEquals(String givenAmount){
+        return givenAmount != null && givenAmount.equals(grandTotal.getText());
     }
 
 

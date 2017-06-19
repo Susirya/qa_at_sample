@@ -52,9 +52,9 @@ public class CheckoutStepdef {
 
     @And("^I can view order summary$")
     public void iCanViewOrderSummary(DataTable dataTable) throws Throwable {
-        Map<String, Double> dataMap = dataTable.transpose().asMap(String.class, Double.class);
-        Double givenSubtotal = dataMap.get("Order Subtotal");
-        Double givenGrandTotal = dataMap.get("Order Total");
+        Map<String, String> dataMap = dataTable.transpose().asMap(String.class, String.class);
+        String givenSubtotal = dataMap.get("Order Subtotal");
+        String givenGrandTotal = dataMap.get("Order Total");
         assertTrue("Subtotal calculated incorrect! Expected: " + givenSubtotal, cartPage.isSubtotalEquals(givenSubtotal));
         assertTrue("Grandtotal calculated incorrect! Expected: " + givenGrandTotal, cartPage.isGrandTotalEquals(givenGrandTotal));
     }
