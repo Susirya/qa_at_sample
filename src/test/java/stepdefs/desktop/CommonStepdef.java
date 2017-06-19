@@ -17,13 +17,13 @@ public class CommonStepdef {
     }
 
     @When("^I am on home page$")
-    public void iAmOnHomePage() throws Throwable {
+    public void iAmOnHomePage() {
         homePage = new HomePage(Hooks.getBrowser());
         homePage.visit();
     }
 
     @Then("^On the home page I can view logo, Sign in Register, icon, search field, navigation menu, banner$")
-    public void onTheHomePageICanViewLogoSignInRegisterIconSearchFieldNavigationMenuBanner() throws Throwable {
+    public void onTheHomePageICanViewLogoSignInRegisterIconSearchFieldNavigationMenuBanner() {
         HeaderFragment headerFragment = homePage.getHeaderFragment();
         assertTrue("Logo is not visible", headerFragment.isSiteLogoDisplayed());
         assertTrue("Sign in or Register link is not visible", headerFragment.isSignInLinkDisplayed());
@@ -31,5 +31,10 @@ public class CommonStepdef {
         assertTrue("Search field is not visible", headerFragment.isSearchBarDisplayed());
         assertTrue("Navigation menu is not visible", headerFragment.isNavigationMenuDisplayed());
         assertTrue("Banner is not visible", headerFragment.isBannerDisplayed());
+    }
+
+    @When("^I search for \"([^\"]*)\"$")
+    public void iSearchFor(String query) {
+        homePage.getHeaderFragment().searchProduct(query);
     }
 }

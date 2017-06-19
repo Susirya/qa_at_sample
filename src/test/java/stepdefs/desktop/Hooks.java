@@ -14,6 +14,7 @@ public class Hooks {
     public static void setUp() {
         String browserName = PropertyLoader.getInstanse().getPropertyValue(BROWSER_NAME_PROPERTY_KEY);
         browser = BrowserFactory.makeBrowser(browserName);
+        browser.manage().window().maximize();
     }
 
     @After

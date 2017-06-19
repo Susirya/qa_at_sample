@@ -6,9 +6,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class SearchProductItemFragment extends AbstractFragment {
 
-    @FindBy(className = "search")
-    private WebElement root;
-
+    @FindBy(className = "product__list--item")
+    WebElement root;
 
 
 

@@ -4,7 +4,6 @@ import abstractClasses.fragment.AbstractFragment;
 import helpers.Browser;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class HeaderFragment extends AbstractFragment {
 
@@ -26,14 +25,16 @@ public class HeaderFragment extends AbstractFragment {
     @FindBy(id = "homepage_slider")
     private WebElement bannerSlider;
 
-    private SearchProductItemFragment searchBar;
+    @FindBy(className = "site-search")
+    private WebElement searchBar;
 
+    @FindBy(id = "js-site-search-input")
+    private WebElement inputField;
 
-
-
+    @SuppressWarnings("unchecked")
+    @Override
     public void init(Browser browser) {
         super.init(browser);
-        searchBar = PageFactory.initElements(browser, SearchProductItemFragment.class);
     }
 
     public boolean isSiteLogoDisplayed(){
@@ -60,8 +61,9 @@ public class HeaderFragment extends AbstractFragment {
         return bannerSlider.isDisplayed();
     }
 
-    public void searchProduct(String searchQuery){
-
+    public void searchProduct(String query){
+        inputField.sendKeys(query);
+        inputField.submit();
     }
 
     @Override
