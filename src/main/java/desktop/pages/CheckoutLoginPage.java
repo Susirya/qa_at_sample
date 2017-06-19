@@ -3,7 +3,8 @@ package desktop.pages;
 import abstractClasses.page.AbstractPage;
 
 public class CheckoutLoginPage extends AbstractPage {
-    public static final String PATH = "/checkout/hybrid/login";
+    private static final String PATH = "/login/checkout";
+    private static final String PRODUCT_DETAILS_PAGE_TITLE_REGEX = "(.*)| Open Catalogue | Electronics Site";
 
     @Override
     protected String getPageTitleRegex() {
