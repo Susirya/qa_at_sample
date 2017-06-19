@@ -20,10 +20,10 @@ public class DeliveryMethodPage extends AbstractPage {
     private WebElement deliveryMethodSubmit;
 
     public void selectDeliveryMathobByName(String deliveryMethodName){
-        if (STANDARD_DELIVERY_OPTION_TEXT.equals(deliveryMethodName)){
+        if (STANDARD_DELIVERY_OPTION_TEXT.equalsIgnoreCase(deliveryMethodName)){
             deliveryMethodSelect.selectByValue(STANDARD_DELIVERY_OPTION_VALUE);
         }
-        if (PREMIUM_DELIVERY_OPTION_TEXT.equals(deliveryMethodName)){
+        if (PREMIUM_DELIVERY_OPTION_TEXT.equalsIgnoreCase(deliveryMethodName)){
             deliveryMethodSelect.selectByValue(PREMIUM_DELIVERY_OPTION_VALUE);
         }
     }

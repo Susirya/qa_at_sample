@@ -59,7 +59,7 @@ public class ProductSearchResultPageStepdef {
     private SearchProductItemFragment getProductFragmentByProductName(String name) {
         List<SearchProductItemFragment> searchResultProducts = searchResultsPage.getSearchResultProducts();
         return searchResultProducts.stream()
-                .filter(pr -> name.equals(pr.nameText()))
+                .filter(pr -> name.equalsIgnoreCase(pr.nameText()))
                 .findFirst().get();
     }
 

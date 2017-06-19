@@ -59,12 +59,6 @@ public class PaymentBillingAddressPage extends AbstractPage {
         submitPaymentDetailsButton.click();
     }
 
-
-
-
-
-
-
     @Override
     protected String getPageTitleRegex() {
         return TITLE_REGEX;

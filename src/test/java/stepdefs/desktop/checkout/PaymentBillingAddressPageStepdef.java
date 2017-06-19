@@ -24,7 +24,7 @@ public class PaymentBillingAddressPageStepdef {
     @And("^I am redirected to multicheckout payment method page$")
     public void iAmRedirectedToMulticheckoutPaymentMethodPage() {
         waitGui().until((Predicate<WebDriver>) webDriver -> paymentBillingAddressPage.isCurrent());
-        assertTrue(paymentBillingAddressPage.isCurrent());
+        assertTrue("Landed on incorrect page.", paymentBillingAddressPage.isCurrent());
     }
 
 

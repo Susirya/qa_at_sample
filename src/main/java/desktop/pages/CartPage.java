@@ -27,18 +27,18 @@ public class CartPage extends AbstractPage {
 
 
     public boolean isSubtotalEquals(String givenAmount) {
-        return givenAmount != null && givenAmount.equals(subtotal.getText());
+        return givenAmount != null && givenAmount.equalsIgnoreCase(subtotal.getText());
     }
 
     public boolean isGrandTotalEquals(String givenAmount){
-        return givenAmount != null && givenAmount.equals(grandTotal.getText());
+        return givenAmount != null && givenAmount.equalsIgnoreCase(grandTotal.getText());
     }
 
     public void clickButtonWithTitle(String givenTitle){
-        if ("Checkout".equals(givenTitle)){
+        if ("Checkout".equalsIgnoreCase(givenTitle)){
             checkoutButton.click();
         }
-        if ("Continue shopping".equals(givenTitle)) {
+        if ("Continue shopping".equalsIgnoreCase(givenTitle)) {
             continueShoppingButton.click();
         }
     }

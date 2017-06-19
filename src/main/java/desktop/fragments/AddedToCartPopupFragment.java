@@ -26,10 +26,10 @@ public class AddedToCartPopupFragment extends AbstractFragment{
     private WebElement continueShoppingButton;
 
     public void clickButtonWithTitle(String givenTitle){
-        if ("Checkout".equals(givenTitle)){
+        if ("Checkout".equalsIgnoreCase(givenTitle)){
             checkoutButton.click();
         }
-        if ("Continue shopping".equals(givenTitle)) {
+        if ("Continue shopping".equalsIgnoreCase(givenTitle)) {
             continueShoppingButton.click();
         }
     }

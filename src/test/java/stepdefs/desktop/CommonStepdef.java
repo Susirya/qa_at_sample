@@ -1,5 +1,7 @@
 package stepdefs.desktop;
 
+import com.google.common.base.Predicate;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,6 +11,7 @@ import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;
 
+import static org.jboss.arquillian.graphene.Graphene.waitGui;
 import static org.junit.Assert.assertTrue;
 
 public class CommonStepdef {
@@ -42,5 +45,18 @@ public class CommonStepdef {
     @When("^I search for \"([^\"]*)\"$")
     public void iSearchFor(String query) {
         homePage.getHeaderFragment().searchProduct(query);
+    }
+
+    @And("^I am redirected to the home page$")
+    public void iAmRedirectedToTheHomePage() {
+        waitGui().until((Predicate<WebDriver>) webDriver -> homePage.isCurrent());
+        assertTrue("Landed on incorrect page.", homePage.isCurrent());
+    }
+
+    @And("^mini cart icon on home page shows (\\d+) items in cart$")
+    public void miniCartIconOnHomePageShowsItemsInCart(int expectedAmount) {
+        assertTrue("Product quantitty in minicart is incorrect! Expected " +
+                expectedAmount, homePage.isMinicartProductsAmountEqual(expectedAmount));
+
     }
 }

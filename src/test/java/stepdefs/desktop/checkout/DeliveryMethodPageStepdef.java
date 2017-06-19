@@ -24,7 +24,7 @@ public class DeliveryMethodPageStepdef {
     @And("^I am redirected to multicheckout delivery method page$")
     public void iAmRedirectedToMulticheckoutDeliveryMethodPage() {
         waitGui().until((Predicate<WebDriver>) webDriver -> deliveryMethodPage.isCurrent());
-        assertTrue(deliveryMethodPage.isCurrent());
+        assertTrue("Landed on incorrect page.", deliveryMethodPage.isCurrent());
     }
 
     @And("^I select \"([^\"]*)\" delivery method$")

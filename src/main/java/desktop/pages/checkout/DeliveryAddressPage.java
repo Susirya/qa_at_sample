@@ -70,7 +70,9 @@ public class DeliveryAddressPage extends AbstractPage {
         addressSubmit.click();
     }
 
-
+    public CheckoutOrderSummaryFragment getTotalsFragment() {
+        return checkoutOrderSummaryFragment;
+    }
 
     @Override
     protected String getPageTitleRegex() {

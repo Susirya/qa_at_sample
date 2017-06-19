@@ -41,11 +41,11 @@ public class ProductDetailsPage extends AbstractPage {
     }
 
     public void clickButtonWithTitle(String givenTitle){
-        if ("Add to cart".equals(givenTitle)){
+        if ("Add to cart".equalsIgnoreCase(givenTitle)){
             addToCartButton.click();
             waitGui().until((Predicate<WebDriver>) webDriver -> addedToCartPopupFragment.isDisplayed());
         }
-        if ("Pick Up in Store".equals(givenTitle)) {
+        if ("Pick Up in Store".equalsIgnoreCase(givenTitle)) {
             pickUpInStoreButton.click();
             // TODO add waiter for store selector popup (when it will be implemented
         }

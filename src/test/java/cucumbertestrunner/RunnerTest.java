@@ -4,7 +4,6 @@ import cucumber.api.CucumberOptions;
 import cucumber.runtime.arquillian.ArquillianCucumber;
 import org.junit.runner.RunWith;
 
-
 //@Features("none/cukes-in-belly.feature:3")
 //@Glues({CommonStepdef.class, Hooks.class, })
 @RunWith(ArquillianCucumber.class)
@@ -13,6 +12,12 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "stepdefs"
 )
-public class RunnerTest {
+public class RunnerTest {}
 
-}
+//@RunWith(Cucumber.class)
+//@CucumberOptions(
+//        format = {"pretty", "html:target/cucumber-htmlreport"},
+//        features = "src/test/resources/features",
+//        glue = "stepdefs"
+//)
+//public class RunnerTest {}

@@ -24,7 +24,12 @@ public class DeliveryAddressPageStepdef {
     @And("^I am redirected to multicheckout delivery address page$")
     public void iAmRedirectedToMulticheckoutDeliveryAddressPage() {
         waitGui().until((Predicate<WebDriver>) webDriver -> deliveryAddressPage.isCurrent());
-        assertTrue(deliveryAddressPage.isCurrent());
+        assertTrue("Landed on incorrect page.", deliveryAddressPage.isCurrent());
+    }
+
+    @And("^I have the following final review$")
+    public void iHaveTheFollowingFinalReview(DataTable orderTotalsDataTable) {
+        CheckoutCommons.assertAllTotalsOnOrderSummaryFragment(orderTotalsDataTable, deliveryAddressPage.getTotalsFragment());
     }
 
     @And("^I fill in delivery address information$")
