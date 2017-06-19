@@ -28,7 +28,7 @@ public class CommonStepdef {
         assertTrue("Logo is not visible", headerFragment.isSiteLogoDisplayed());
         assertTrue("Sign in or Register link is not visible", headerFragment.isSignInLinkDisplayed());
         assertTrue("Sign in or Register icon is not visible", headerFragment.isSignInIconDisplayed());
-        assertTrue("Search field is not visible", headerFragment.isSearchFieldDisplayed());
+        assertTrue("Search field is not visible", headerFragment.isSearchBarDisplayed());
         assertTrue("Navigation menu is not visible", headerFragment.isNavigationMenuDisplayed());
         assertTrue("Banner is not visible", headerFragment.isBannerDisplayed());
     }
