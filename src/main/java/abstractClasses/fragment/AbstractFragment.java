@@ -1,4 +1,4 @@
 package abstractClasses.fragment;
 
-public class AbstractFragment {
+public abstract class AbstractFragment {
 }

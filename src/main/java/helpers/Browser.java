@@ -82,4 +82,12 @@ public class Browser implements WebDriver{
     public Options manage() {
         return driver.manage();
     }
+
+    public void clearCookies() {
+        driver.manage().deleteAllCookies();
+    }
+
+    public void reloadPage() {
+        driver.navigate().refresh();
+    }
 }
