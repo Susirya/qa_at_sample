@@ -18,7 +18,6 @@
         </developer>
     </developers>
 
-
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -32,11 +31,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -53,9 +47,39 @@
             <version>${cucumber-jvm.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>4.2.1</version>
+        </dependency>
+
     </dependencies>
 
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
     <profiles>
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>local_chrome</id>
+            <properties>
+                <browser.name>chrome</browser.name>
+                <cucumber.options>--glue src/test/java/stepdefs/mobile --</cucumber.options>
+            </properties>
+        </profile>
         <profile>
             <id>local_firefox</id>
             <properties>
@@ -63,45 +87,9 @@
             </properties>
         </profile>
         <profile>
-            <id>local_chrome</id>
-            <properties>
-                <browser.name>chrome</browser.name>
-            </properties>
-        </profile>
-        <profile>
             <id>local_edge</id>
             <properties>
                 <browser.name>edge</browser.name>
-            </properties>
-        </profile>
-        <profile>
-            <id>remote_firefox</id>
-            <properties>
-                <browser.name>firefox_r</browser.name>
-            </properties>
-        </profile>
-        <profile>
-            <id>remote_chrome</id>
-            <properties>
-                <browser.name>chrome_r</browser.name>
-            </properties>
-        </profile>
-        <profile>
-            <id>remote_edge</id>
-            <properties>
-                <browser.name>edge_r</browser.name>
-            </properties>
-        </profile>
-        <profile>
-            <id>local_ie</id>
-            <properties>
-                <browser.name>ie</browser.name>
-            </properties>
-        </profile>
-        <profile>
-            <id>remote_ie</id>
-            <properties>
-                <browser.name>ie_r</browser.name>
             </properties>
         </profile>
     </profiles>
