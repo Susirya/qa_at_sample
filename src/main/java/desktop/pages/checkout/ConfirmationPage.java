@@ -1,13 +1,8 @@
-package desktop.pages;
+package desktop.pages.checkout;
 
 import abstractClasses.page.AbstractPage;
 
-public class WorldPayPage extends AbstractPage {
-
-
-
-
-
+public class ConfirmationPage extends AbstractPage {
     @Override
     protected String getPageTitleRegex() {
         return "";

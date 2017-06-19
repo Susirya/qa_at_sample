@@ -1,4 +1,4 @@
-package desktop.pages;
+package desktop.pages.checkout;
 
 import abstractClasses.page.AbstractPage;
 

@@ -1,11 +1,15 @@
-package stepdefs.desktop;
+package stepdefs.desktop.checkout;
 
 import com.google.common.base.Predicate;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
-import desktop.pages.DeliveryAddressPage;
+import cucumber.api.java.en.When;
+import desktop.pages.checkout.DeliveryAddressPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;
+
+import java.util.Map;
 
 import static org.jboss.arquillian.graphene.Graphene.waitGui;
 import static org.junit.Assert.assertTrue;
@@ -21,5 +25,16 @@ public class DeliveryAddressPageStepdef {
     public void iAmRedirectedToMulticheckoutDeliveryAddressPage() {
         waitGui().until((Predicate<WebDriver>) webDriver -> deliveryAddressPage.isCurrent());
         assertTrue(deliveryAddressPage.isCurrent());
+    }
+
+    @And("^I fill in delivery address information$")
+    public void iFillInDeliveryAddressInformation(DataTable dataTable) {
+        Map<String, String> dataMap = dataTable.transpose().asMap(String.class, String.class);
+        deliveryAddressPage.fillMandatoryAddressFields(dataMap);
+    }
+
+    @When("^I press \"(.*?)\" button on delivery address page$")
+    public void iPressButtonOnDeliveryAddressPage(String arg0) {
+        deliveryAddressPage.clickNextButton();
     }
 }

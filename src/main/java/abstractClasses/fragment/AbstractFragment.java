@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public abstract class AbstractFragment {
     @Drone
-    private WebDriver browser;
+    protected WebDriver browser;
 
     public boolean isDisplayed(){
         return getRoot().isDisplayed();

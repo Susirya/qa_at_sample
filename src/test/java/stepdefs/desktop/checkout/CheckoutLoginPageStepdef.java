@@ -1,7 +1,7 @@
-package stepdefs.desktop;
+package stepdefs.desktop.checkout;
 
 import cucumber.api.java.en.And;
-import desktop.pages.CheckoutLoginPage;
+import desktop.pages.checkout.CheckoutLoginPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;
