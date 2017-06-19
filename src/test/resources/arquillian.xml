@@ -16,7 +16,6 @@
 
     <property name="chromeArguments">${chromeArguments}</property>
     <property name="chromePrintOptions">true</property>
-    <property name="dimensions">fullscreen</property>
   </extension>
 
 </arquillian>
