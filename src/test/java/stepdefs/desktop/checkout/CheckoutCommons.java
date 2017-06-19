@@ -1,15 +1,13 @@
 package stepdefs.desktop.checkout;
 
-import abstractClasses.OrderSummaryAssertable;
 import cucumber.api.DataTable;
+import cucumber.api.java.en.And;
 import desktop.fragments.CheckoutOrderSummaryFragment;
+import desktop.pages.checkout.DeliveryAddressPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;
-
-import java.util.Map;
-
-import static org.junit.Assert.assertTrue;
+import stepdefs.shared.checkout.Utils;
 
 public class CheckoutCommons {
     @Drone
@@ -18,28 +16,13 @@ public class CheckoutCommons {
     @Page
     private CheckoutOrderSummaryFragment checkoutOrderSummaryFragment;
 
+    @Page
+    private DeliveryAddressPage deliveryAddressPage;
 
-    public static void assertAllTotalsOnOrderSummaryFragment(DataTable orderTotalsDataTable, OrderSummaryAssertable totalsFragment) {
-        Map<String, String> dataMap = orderTotalsDataTable.transpose().asMap(String.class, String.class);
-        String givenSubtotal = dataMap.get("Subtotal");
-        String givenDelivery = dataMap.get("Delivery");
-        String givenTax = dataMap.get("Tax");
-        String givenTotal = dataMap.get("Total");
-        if (givenSubtotal != null) {
-            assertTrue("Subtotal calculated incorrect! Expected: " +
-                    givenSubtotal, totalsFragment.isOrderSubtotalEqual(givenSubtotal));
-        }
-        if (givenDelivery != null) {
-            assertTrue("Delivery calculated incorrect! Expected: " +
-                    givenDelivery, totalsFragment.isOrderDeliveryEqual(givenDelivery));
-        }
-        if (givenTax != null) {
-            assertTrue("Taxes calculated incorrect! Expected: " +
-                    givenTax, totalsFragment.isOrderTaxesEqual(givenTax));
-        }
-        if (givenTotal != null) {
-            assertTrue("Total calculated incorrect! Expected: " +
-                    givenTotal, totalsFragment.isOrderTotalEqual(givenTotal));
+    @And("^I have the following final review$")
+    public void iHaveTheFollowingFinalReview(DataTable orderTotalsDataTable) {
+        if (deliveryAddressPage.isCurrent()) {
+            Utils.assertAllTotalsOnOrderSummaryFragment(orderTotalsDataTable, deliveryAddressPage.getTotalsFragment());
         }
     }
 

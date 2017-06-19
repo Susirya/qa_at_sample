@@ -8,6 +8,7 @@ import mobile.pages.checkout.ConfirmationPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;
+import stepdefs.shared.checkout.Utils;
 
 import static org.jboss.arquillian.graphene.Graphene.waitGui;
 import static org.junit.Assert.assertTrue;
@@ -27,7 +28,7 @@ public class ConfirmationPageStepdef {
 
     @And("^I have the following final review at order confirmation page$")
     public void iHaveTheFollowingFinalReviewAtOrderConfirmationPage(DataTable dataTable) {
-        CheckoutCommons.assertAllTotalsOnOrderSummaryFragment(dataTable, confirmationPage.getTotalsFragment());
+        Utils.assertAllTotalsOnOrderSummaryFragment(dataTable, confirmationPage.getTotalsFragment());
     }
 
     @And("^checkout message is \"([^\"]*)\"$")

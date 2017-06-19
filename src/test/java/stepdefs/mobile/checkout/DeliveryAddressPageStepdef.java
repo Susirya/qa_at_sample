@@ -27,11 +27,6 @@ public class DeliveryAddressPageStepdef {
         assertTrue("Landed on incorrect page.", deliveryAddressPage.isCurrent());
     }
 
-    @And("^I have the following final review$")
-    public void iHaveTheFollowingFinalReview(DataTable orderTotalsDataTable) {
-        CheckoutCommons.assertAllTotalsOnOrderSummaryFragment(orderTotalsDataTable, deliveryAddressPage.getTotalsFragment());
-    }
-
     @And("^I fill in delivery address information$")
     public void iFillInDeliveryAddressInformation(DataTable dataTable) {
         Map<String, String> dataMap = dataTable.transpose().asMap(String.class, String.class);
