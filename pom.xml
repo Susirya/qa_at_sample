@@ -34,6 +34,7 @@
         <cukes.version>1.6.7</cukes.version>
 
         <testRunner>DesktopRunnerTest.java</testRunner>
+        <chrome.iPhone6Plus>--window-size=414,736 --use-mobile-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A366 Safari/600.1.4</chrome.iPhone6Plus>
         <chromeArguments></chromeArguments>
 
     </properties>
@@ -144,7 +145,7 @@
                 <browser>chrome</browser>
                 <browserCapabilities>chrome</browserCapabilities>
                 <testRunner>MobileRunnerTest.java</testRunner>
-                <chromeArguments>--window-size=360,640</chromeArguments>
+                <chromeArguments>${chrome.iPhone6Plus}</chromeArguments>
             </properties>
         </profile>
     </profiles>
