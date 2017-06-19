@@ -11,6 +11,14 @@
     <name>qa_at_mentoring</name>
     <url>https://github.com/Susirya/qa_at_sample.git</url>
 
+    <developers>
+        <developer>
+            <name>Anton Naidonov</name>
+            <email>a.naidonov@gmail.com</email>
+        </developer>
+    </developers>
+
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -18,26 +26,84 @@
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
+        <junit.version>4.11</junit.version>
+        <selenium.version>2.53.1</selenium.version>
+        <cucumber-jvm.version>1.1.5</cucumber-jvm.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>1.2.5</version>
-            <scope>test</scope>
+            <version>${cucumber-jvm.version}</version>
         </dependency>
         <dependency>
-            <groupId>net.masterthought</groupId>
-            <artifactId>cucumber-sandwich</artifactId>
-            <version>3.7.0</version>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber-jvm.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>local_firefox</id>
+            <properties>
+                <browser.name>firefox</browser.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>local_chrome</id>
+            <properties>
+                <browser.name>chrome</browser.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>local_edge</id>
+            <properties>
+                <browser.name>edge</browser.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>remote_firefox</id>
+            <properties>
+                <browser.name>firefox_r</browser.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>remote_chrome</id>
+            <properties>
+                <browser.name>chrome_r</browser.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>remote_edge</id>
+            <properties>
+                <browser.name>edge_r</browser.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>local_ie</id>
+            <properties>
+                <browser.name>ie</browser.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>remote_ie</id>
+            <properties>
+                <browser.name>ie_r</browser.name>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

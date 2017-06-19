@@ -1,0 +1,51 @@
+@startuml
+
+abstract AbstractPage {
++ public String getTitle()
++ public String visit()
+
+}
+class HomePage
+class WorldPayPage
+class ConfirmationPage
+class DeliveryMethodPage
+class DeliveryAddressPage
+class CheckoutLoginPage
+class CartPage
+class ProductDetailsPage
+class SearchResultPage
+
+AbstractPage <|-- ArrayList
+AbstractPage <|--- HomePage
+AbstractPage <|-- WorldPayPage
+AbstractPage <|--- ConfirmationPage
+AbstractPage <|-- DeliveryMethodPage
+AbstractPage <|--- DeliveryAddressPage
+AbstractPage <|-- CheckoutLoginPage
+AbstractPage <|--- CartPage
+AbstractPage <|-- ProductDetailsPage
+AbstractPage <|--- SearchResultPage
+
+
+'interface List
+'interface Collection
+'
+'List <|-- AbstractPage
+'Collection <|-- AbstractCollection
+'
+'Collection <|- List
+'AbstractCollection <|- AbstractPage
+'AbstractPage <|-- ArrayList
+'
+'class ArrayList {
+'Object[] elementData
+'size()
+'}
+'
+'enum TimeUnit {
+'DAYS
+'HOURS
+'MINUTES
+'}
+
+@enduml
