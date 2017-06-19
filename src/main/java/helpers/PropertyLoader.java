@@ -5,9 +5,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertyLoader {
-    private static final String PROPERTY_FILE = System.getProperties().get("basedir") + "/target/classes/application.properties";
+    private static final String PROPERTY_FILE = System.getProperties().get("basedir") + "/target/test-classes/application.properties";
     private static PropertyLoader instanse;
     private Properties appProperties;
+
     private PropertyLoader() {
         try (FileInputStream in = new FileInputStream(PROPERTY_FILE)){
             appProperties = new Properties();

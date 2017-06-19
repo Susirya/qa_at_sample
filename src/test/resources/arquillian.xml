@@ -9,7 +9,13 @@
   </extension>
 
   <extension qualifier="webdriver">
-    <property name="browser">chrome</property>
+    <property name="browser">${browser}</property>
+    <property name="browserCapabilities">${browserCapabilities}</property>
+
+    <property name="firefox_binary">${firefox_binary}</property>
+
+    <property name="chromeArguments">${chromeArguments}</property>
+    <property name="chromePrintOptions">true</property>
   </extension>
 
 </arquillian>

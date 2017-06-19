@@ -31,10 +31,12 @@
 
         <arquillian.version>1.1.13.Final</arquillian.version>
         <drone.version>2.1.2</drone.version>
-        <cukes.version>1.5.10</cukes.version>
+        <cukes.version>1.6.7</cukes.version>
+
+        <testRunner>DesktopRunnerTest.java</testRunner>
+        <chromeArguments></chromeArguments>
 
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
@@ -73,18 +75,15 @@
             <groupId>org.jboss.arquillian.extension</groupId>
             <artifactId>arquillian-drone-webdriver-depchain</artifactId>
             <type>pom</type>
-            <!--<scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-standalone</artifactId>
-            <!--<scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>com.github.cukespace</groupId>
             <artifactId>cukespace-core</artifactId>
             <version>${cukes.version}</version>
-            <!--<scope>test</scope>-->
             <exclusions>
                 <exclusion>
                     <groupId>org.jboss.arquillian.junit</groupId>
@@ -103,7 +102,6 @@
             <artifactId>graphene-webdriver</artifactId>
             <version>2.1.0.Final</version>
             <type>pom</type>
-            <!--<scope>test</scope>-->
         </dependency>
 
         <dependency>
@@ -113,37 +111,67 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources/</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-    </build>
-
     <profiles>
         <profile>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <id>local_chrome</id>
+            <id>chrome_desktop</id>
             <properties>
-                <browser.name>chrome</browser.name>
+                <browser>chrome</browser>
+                <browserCapabilities>chrome</browserCapabilities>
             </properties>
         </profile>
         <profile>
-            <id>local_firefox</id>
+            <id>firefox_desktop</id>
             <properties>
-                <browser.name>firefox</browser.name>
+                <browser>firefox</browser>
+                <browserCapabilities>firefox</browserCapabilities>
+                <firefox_binary>C:\Program Files (x86)\Mozilla Firefox 41\firefox.exe</firefox_binary>
             </properties>
         </profile>
         <profile>
-            <id>local_edge</id>
+            <id>edge_desktop</id>
             <properties>
-                <browser.name>edge</browser.name>
+                <browser>edge</browser>
+                <browserCapabilities>edge</browserCapabilities>
+            </properties>
+        </profile>
+        <profile>
+
+            <id>chrome_mobile</id>
+            <properties>
+                <browser>chrome</browser>
+                <browserCapabilities>chrome</browserCapabilities>
+                <testRunner>MobileRunnerTest.java</testRunner>
+                <chromeArguments>--window-size=360,640</chromeArguments>
             </properties>
         </profile>
     </profiles>
 
+
+    <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources/</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                </includes>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+                <configuration>
+                    <includes>
+                        <include>${testRunner}</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
