@@ -4,25 +4,19 @@ import desktop.fragments.HeaderFragment;
 import helpers.PropertyLoader;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AbstractPage {
-    protected static final String BASE_URL = PropertyLoader.getInstanse().getPropertyValue("base.url");
+    private static final String BASE_URL = PropertyLoader.getInstanse().getPropertyValue("base.url");
+    private static final String HOMEPAGE_TITLE_REGEX = "Electronics Site | Homepage";
 
     @Drone
     protected WebDriver browser;
 
-    @FindBy(id = "header")
+    @FindBy(className = "js-mainHeader")
     private HeaderFragment headerFragment;
 
-//   DemoLab
-//    @FindBy(className = "navMainList")
-//   WX - TP
-    @FindBy(id = "nav_main")
-    private WebElement navigationMenu;
-
-    public String getTitle() {
+    public String actualTitle() {
         return browser.getTitle();
     }
 
@@ -30,12 +24,16 @@ public class AbstractPage {
         return headerFragment;
     }
 
-    public WebElement getNavigationMenu() {
-        return navigationMenu;
-    }
-
     public void visit(){
         browser.get(BASE_URL + getPath());
+    }
+
+    public boolean isCurrent(){
+        return actualTitle().equals(getPageTitleRegex()) || actualTitle().matches(getPageTitleRegex());
+    }
+
+    protected String getPageTitleRegex(){
+        return HOMEPAGE_TITLE_REGEX;
     }
 
     protected String getPath(){

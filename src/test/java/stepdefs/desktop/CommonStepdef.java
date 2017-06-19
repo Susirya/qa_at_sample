@@ -19,26 +19,24 @@ public class CommonStepdef {
     private HomePage homePage;
 
     @Given("^I am an anonymous customer with clear cookies$")
-    public void iAmAnAnonymousCustomerWithClearCookies(){
+    public void iAmAnAnonymousCustomerWithClearCookies() {
         browser.manage().deleteAllCookies();
     }
 
     @When("^I am on home page$")
     public void iAmOnHomePage() {
         homePage.visit();
-        homePage.closePopup();
+        assertTrue("Landed on incorrect page.", homePage.isCurrent());
     }
 
     @Then("^On the home page I can view logo, Sign in Register, icon, search field, navigation menu, banner$")
     public void onTheHomePageICanViewLogoSignInRegisterIconSearchFieldNavigationMenuBanner() {
-
         HeaderFragment headerFragment = homePage.getHeaderFragment();
-        assertTrue("Logo is not visible", headerFragment.isSiteLogoDisplayed());
-        assertTrue("Sign in or Register link is not visible", headerFragment.isSignInLinkDisplayed());
-        assertTrue("Sign in or Register icon is not visible", headerFragment.isSignInIconDisplayed());
-        assertTrue("Search field is not visible", headerFragment.isSearchBarDisplayed());
-        assertTrue("Navigation menu is not visible", homePage.isNavigationMenuDisplayed());
-        assertTrue("Banner is not visible", homePage.isBannerDisplayed());
+        assertTrue("Logo is not visible.", headerFragment.isSiteLogoDisplayed());
+        assertTrue("Sign in or Register link is not visible.", headerFragment.isSignInLinkDisplayed());
+        assertTrue("Search field is not visible.", headerFragment.isSearchBarDisplayed());
+        assertTrue("Navigation menu is not visible.", headerFragment.isNavigationMenuDisplayed());
+        assertTrue("Banner is not visible.", homePage.isBannerDisplayed());
     }
 
     @When("^I search for \"([^\"]*)\"$")

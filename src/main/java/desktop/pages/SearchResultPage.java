@@ -1,34 +1,39 @@
 package desktop.pages;
 
 import abstractClasses.page.AbstractPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import desktop.fragments.SearchProductItemFragment;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SearchResultPage extends AbstractPage {
+    private static final String PATH = "search/";
+    private static final String SEARCHPAGE_TITLE_REGEX = "Search (.*)| Electronics Site";
 
-    private static final By PRODUCT_LIST_ITEMS = By.className("product__list--item");
-
-    @FindBy(className = "product__list--wrapper")
-    WebElement productList;
-
+    @FindBy(className = "product__list--item")
+    List<SearchProductItemFragment> produсts;
 
     public int searchResultsQuantityOnPage(){
-        return getProductsItemList().size();
+        return produсts.size();
     }
 
-    public List<WebElement> getProductsWithNameContaining (String namePart){
-        return productList.findElements(By.partialLinkText(namePart));
+    public List<SearchProductItemFragment> getProductsWithNamePart(String namePart){
+        List<SearchProductItemFragment> result = produсts.stream()
+                .filter(product -> product.nameText().contains(namePart))
+                .collect(Collectors.toList());
+        return result;
+    }
+
+    public List<SearchProductItemFragment> getSearchResultProducts(){
+        return produсts;
     }
 
 
 
 
-
-
-    private List<WebElement> getProductsItemList() {
-        return productList.findElements(PRODUCT_LIST_ITEMS);
+    @Override
+    protected String getPageTitleRegex(){
+        return SEARCHPAGE_TITLE_REGEX;
     }
 }

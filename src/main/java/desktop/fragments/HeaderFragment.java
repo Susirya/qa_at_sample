@@ -6,23 +6,20 @@ import org.openqa.selenium.support.FindBy;
 
 public class HeaderFragment extends AbstractFragment {
 
-    @FindBy(className = "siteLogo")
+    @FindBy(xpath = ".//div[contains(@class,'js-site-logo')]")
     private WebElement siteLogo;
 
-    @FindBy(className = "header_link-text")
+    @FindBy(xpath = ".//ul[contains(@class,'nav__links--account')]")
     private WebElement signInLink;
 
-    @FindBy(className = "header_link")
-    private WebElement signInIcon;
-
-//  DemoLab
-//    @FindBy(className = "site-search")
-//  WX - TP
-    @FindBy(className = "search")
+    @FindBy(className = "site-search")
     private WebElement searchBar;
 
     @FindBy(id = "js-site-search-input")
     private WebElement inputField;
+
+    @FindBy(xpath = ".//nav[contains(@class,'navigation--bottom')]")
+    private WebElement navigationMenu;
 
     public boolean isSiteLogoDisplayed(){
         return siteLogo.isDisplayed();
@@ -32,12 +29,12 @@ public class HeaderFragment extends AbstractFragment {
         return signInLink.isDisplayed();
     }
 
-    public boolean isSignInIconDisplayed(){
-        return signInIcon.isDisplayed();
-    }
-
     public boolean isSearchBarDisplayed(){
         return searchBar.isDisplayed();
+    }
+
+    public boolean isNavigationMenuDisplayed(){
+        return navigationMenu.isDisplayed();
     }
 
     public void searchProduct(String query){
