@@ -1,6 +1,6 @@
 package desktop.pages;
 
-import abstractClasses.page.AbstractPage;
+import abstractClasses.page.AbstractDesktopPage;
 import desktop.fragments.AddedToCartPopupFragment;
 import desktop.fragments.SearchProductItemFragment;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SearchResultPage extends AbstractPage {
+public class SearchResultPage extends AbstractDesktopPage {
     private static final String PATH = "search/";
     private static final String SEARCHPAGE_TITLE_REGEX = "Search (.*)| Electronics Site";
 

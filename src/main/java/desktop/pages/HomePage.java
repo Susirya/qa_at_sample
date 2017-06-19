@@ -1,10 +1,10 @@
 package desktop.pages;
 
-import abstractClasses.page.AbstractPage;
+import abstractClasses.page.AbstractDesktopPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends AbstractPage{
+public class HomePage extends AbstractDesktopPage {
     private static final String HOMEPAGE_TITLE_REGEX = "Electronics Site | Homepage";
 
     @FindBy(css = "a+div>div[class='banner banner__component--responsive']")

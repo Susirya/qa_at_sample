@@ -1,12 +1,12 @@
 package desktop.pages.checkout;
 
-import abstractClasses.page.AbstractPage;
+import abstractClasses.page.AbstractDesktopPage;
 import desktop.fragments.ConfirmationSummaryFragment;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-public class ConfirmationPage extends AbstractPage {
+public class ConfirmationPage extends AbstractDesktopPage {
     private static final String PATH = "/checkout/orderConfirmation/";
     private static final String TITLE_REGEX = "Order Confirmation | Electronics Site";
 

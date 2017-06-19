@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.jboss.arquillian.graphene.Graphene.waitGui;
 
-public abstract class AbstractPage {
+public abstract class AbstractDesktopPage {
     private static final String BASE_URL = PropertyLoader.getInstanse().getPropertyValue("base.url");
 
     @Drone

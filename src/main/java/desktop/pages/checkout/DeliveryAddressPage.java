@@ -1,6 +1,6 @@
 package desktop.pages.checkout;
 
-import abstractClasses.page.AbstractPage;
+import abstractClasses.page.AbstractDesktopPage;
 import desktop.fragments.CheckoutOrderSummaryFragment;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 import static org.jboss.arquillian.graphene.Graphene.waitGui;
 
-public class DeliveryAddressPage extends AbstractPage {
+public class DeliveryAddressPage extends AbstractDesktopPage {
     private static final String PATH = "/checkout/multi/delivery-address/add";
     private static final String TITLE_REGEX = "Checkout | Electronics Site";
 

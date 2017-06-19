@@ -1,10 +1,10 @@
 package desktop.pages.checkout;
 
-import abstractClasses.page.AbstractPage;
+import abstractClasses.page.AbstractDesktopPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class FinalOrderReviewPage extends AbstractPage {
+public class FinalOrderReviewPage extends AbstractDesktopPage {
     private static final String PATH = "/checkout/multi/summary/view";
     private static final String TITLE_REGEX = "Checkout | Electronics Site";
 
