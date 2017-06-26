@@ -21,26 +21,26 @@ public class CheckoutOrderSummaryFragment extends AbstractFragment implements Or
     @FindBy(className = "realTotals")
     private WebElement orderTaxesMessage;
 
+
     @Override
-    public boolean isOrderSubtotalEqual(String givenSubtotal){
-        return givenSubtotal != null && givenSubtotal.equals(orderSubtotal.getText());
+    public String getOrderSubtotalText() {
+        return orderSubtotal.getText();
     }
 
     @Override
-    public boolean isOrderDeliveryEqual(String givenDelivery) {
-        return givenDelivery != null && givenDelivery.equals(orderDelivery.getText());
+    public String getOrderTotalText() {
+        return orderTotal.getText();
     }
 
     @Override
-    public boolean isOrderTotalEqual(String givenTotal){
-        return givenTotal != null && givenTotal.equals(orderTotal.getText());
+    public String getOrderDeliveryText() {
+        return orderDelivery.getText();
     }
 
     @Override
-    public boolean isOrderTaxesEqual(String givenTaxes){
+    public String getOrderTaxesText() {
         String messageText = orderTaxesMessage.getText();
-        String orderTaxes = messageText.substring(20, messageText.length()-5).trim();
-        return givenTaxes != null && givenTaxes.equals(orderTaxes);
+        return messageText.substring(20, messageText.length()-5).trim();
     }
 
     @Override

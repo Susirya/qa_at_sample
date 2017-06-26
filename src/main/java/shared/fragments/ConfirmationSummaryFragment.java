@@ -19,18 +19,23 @@ public class ConfirmationSummaryFragment extends AbstractFragment implements Ord
     private WebElement orderTotal;
 
     @Override
-    public boolean isOrderSubtotalEqual(String givenSubtotal){
-        return givenSubtotal != null && givenSubtotal.equals(orderSubtotal.getText());
+    public String getOrderSubtotalText() {
+        return orderSubtotal.getText();
     }
 
     @Override
-    public boolean isOrderDeliveryEqual(String givenDelivery) {
-        return givenDelivery != null && givenDelivery.equals(orderDelivery.getText());
+    public String getOrderTotalText() {
+        return orderTotal.getText();
     }
 
     @Override
-    public boolean isOrderTotalEqual(String givenTotal){
-        return givenTotal != null && givenTotal.equals(orderTotal.getText());
+    public String getOrderDeliveryText() {
+        return orderDelivery.getText();
+    }
+
+    @Override
+    public String getOrderTaxesText() {
+        return "";
     }
 
     @Override
