@@ -2,7 +2,7 @@ package stepdefs.desktop.checkout;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
-import desktop.fragments.CheckoutOrderSummaryFragment;
+import shared.fragments.CheckoutOrderSummaryFragment;
 import desktop.pages.checkout.DeliveryAddressPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;

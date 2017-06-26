@@ -1,7 +1,7 @@
 package desktop.pages.checkout;
 
 import abstractClasses.page.AbstractPage;
-import desktop.fragments.ConfirmationSummaryFragment;
+import shared.fragments.ConfirmationSummaryFragment;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;

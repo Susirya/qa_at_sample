@@ -1,7 +1,7 @@
 package mobile.pages.checkout;
 
 import abstractClasses.page.AbstractPage;
-import mobile.fragments.CheckoutOrderSummaryFragment;
+import shared.fragments.CheckoutOrderSummaryFragment;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;

@@ -1,4 +1,4 @@
-package desktop.fragments;
+package shared.fragments;
 
 import abstractClasses.fragment.AbstractFragment;
 import org.openqa.selenium.WebElement;

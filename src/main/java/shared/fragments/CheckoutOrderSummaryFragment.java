@@ -1,4 +1,4 @@
-package desktop.fragments;
+package shared.fragments;
 
 import abstractClasses.OrderSummaryAssertable;
 import abstractClasses.fragment.AbstractFragment;
