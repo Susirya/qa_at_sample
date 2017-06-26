@@ -1,10 +1,11 @@
 package abstractClasses.page;
 
+import abstractClasses.fragment.HeaderFragmentInterface;
 import com.google.common.base.Predicate;
-import desktop.fragments.HeaderFragment;
 import helpers.PropertyLoader;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static org.jboss.arquillian.graphene.Graphene.waitGui;
@@ -16,14 +17,23 @@ public abstract class AbstractPage {
     protected WebDriver browser;
 
     @FindBy(className = "js-mainHeader")
-    private HeaderFragment headerFragment;
+    private desktop.fragments.HeaderFragment desktopHeaderFragment;
+
+    @FindBy(className = "js-mainHeader")
+    private mobile.fragments.HeaderFragment mobileHeaderFragment;
+
+    @FindBy(css = ".branding-mobile")
+    private WebElement mobilePageLayoutIndicator;
 
     public String actualTitle() {
         return browser.getTitle();
     }
 
-    public HeaderFragment getHeaderFragment() {
-        return headerFragment;
+    public HeaderFragmentInterface getHeaderFragment() {
+        if (isMobilePageLayout()) {
+            return mobileHeaderFragment;
+        }
+        return desktopHeaderFragment;
     }
 
     public void visit(){
@@ -37,6 +47,10 @@ public abstract class AbstractPage {
 
     public boolean isCurrent(){
         return actualTitle().equals(getPageTitleRegex()) || actualTitle().matches(getPageTitleRegex());
+    }
+
+    public boolean isMobilePageLayout() {
+        return mobilePageLayoutIndicator.isDisplayed();
     }
 
     protected abstract String getPageTitleRegex();

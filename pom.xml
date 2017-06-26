@@ -121,6 +121,7 @@
             <properties>
                 <browser>chrome</browser>
                 <browserCapabilities>chrome</browserCapabilities>
+                <env.type>desktop</env.type>
             </properties>
         </profile>
         <profile>
@@ -129,6 +130,7 @@
                 <browser>firefox</browser>
                 <browserCapabilities>firefox</browserCapabilities>
                 <firefox_binary>C:\Program Files (x86)\Mozilla Firefox 41\firefox.exe</firefox_binary>
+                <env.type>desktop</env.type>
             </properties>
         </profile>
         <profile>
@@ -136,6 +138,7 @@
             <properties>
                 <browser>edge</browser>
                 <browserCapabilities>edge</browserCapabilities>
+                <env.type>desktop</env.type>
             </properties>
         </profile>
         <profile>
@@ -146,6 +149,7 @@
                 <browserCapabilities>chrome</browserCapabilities>
                 <testRunner>MobileRunnerTest.java</testRunner>
                 <chromeArguments>${chrome.iPhone6Plus}</chromeArguments>
+                <env.type>mobile</env.type>
             </properties>
         </profile>
     </profiles>

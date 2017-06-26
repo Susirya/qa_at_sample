@@ -1,8 +1,8 @@
-package mobile.pages;
+package shared.pages;
 
 import abstractClasses.page.AbstractPage;
 import com.google.common.base.Predicate;
-import mobile.fragments.AddedToCartPopupFragment;
+import shared.fragments.AddedToCartPopupFragment;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

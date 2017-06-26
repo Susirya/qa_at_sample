@@ -1,9 +1,9 @@
-package desktop.pages;
+package shared.pages;
 
 import abstractClasses.page.AbstractPage;
-import desktop.fragments.AddedToCartPopupFragment;
-import desktop.fragments.SearchProductItemFragment;
+import shared.fragments.SearchProductItemFragment;
 import org.openqa.selenium.support.FindBy;
+import shared.fragments.AddedToCartPopupFragment;
 
 import java.util.List;
 import java.util.stream.Collectors;

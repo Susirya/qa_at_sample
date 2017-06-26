@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import desktop.pages.HomePage;
-import desktop.pages.ProductDetailsPage;
+import shared.pages.ProductDetailsPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package desktop.pages;
+package shared.pages;
 
 import abstractClasses.page.AbstractPage;
 import org.openqa.selenium.WebElement;

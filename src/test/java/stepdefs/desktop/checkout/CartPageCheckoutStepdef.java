@@ -3,7 +3,7 @@ package stepdefs.desktop.checkout;
 import com.google.common.base.Predicate;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
-import desktop.pages.CartPage;
+import shared.pages.CartPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;

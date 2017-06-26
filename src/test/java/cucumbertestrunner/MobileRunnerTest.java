@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         format = {"pretty", "html:target/cucumber-htmlreport"},
         features = "src/test/resources/features",
-        glue = {"stepdefs/mobile"}
+        glue = {"stepdefs/mobile","stepdefs/shared"}
 )
 public class MobileRunnerTest {}
