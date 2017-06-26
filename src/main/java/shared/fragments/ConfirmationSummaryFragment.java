@@ -29,11 +29,6 @@ public class ConfirmationSummaryFragment extends AbstractFragment implements Ord
     }
 
     @Override
-    public boolean isOrderTaxesEqual(String givenSubtotal) {
-        return false;
-    }
-
-    @Override
     public boolean isOrderTotalEqual(String givenTotal){
         return givenTotal != null && givenTotal.equals(orderTotal.getText());
     }
