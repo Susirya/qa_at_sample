@@ -1,10 +1,10 @@
-package stepdefs.desktop.checkout;
+package stepdefs.shared.checkout;
 
 import com.google.common.base.Predicate;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import desktop.pages.checkout.ConfirmationPage;
+import shared.pages.checkout.ConfirmationPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;

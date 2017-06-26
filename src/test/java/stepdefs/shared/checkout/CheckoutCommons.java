@@ -1,13 +1,12 @@
-package stepdefs.desktop.checkout;
+package stepdefs.shared.checkout;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
-import shared.fragments.CheckoutOrderSummaryFragment;
-import desktop.pages.checkout.DeliveryAddressPage;
+import shared.pages.checkout.DeliveryAddressPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;
-import stepdefs.shared.checkout.Utils;
+import shared.fragments.CheckoutOrderSummaryFragment;
 
 public class CheckoutCommons {
     @Drone

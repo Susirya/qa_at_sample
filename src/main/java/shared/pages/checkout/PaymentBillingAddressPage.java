@@ -1,4 +1,4 @@
-package mobile.pages.checkout;
+package shared.pages.checkout;
 
 import abstractClasses.page.AbstractPage;
 import org.openqa.selenium.WebElement;

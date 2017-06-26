@@ -1,4 +1,4 @@
-package stepdefs.desktop.checkout;
+package stepdefs.shared.checkout;
 
 import com.google.common.base.Predicate;
 import cucumber.api.DataTable;

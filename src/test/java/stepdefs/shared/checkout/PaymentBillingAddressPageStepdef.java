@@ -1,9 +1,9 @@
-package stepdefs.mobile.checkout;
+package stepdefs.shared.checkout;
 
 import com.google.common.base.Predicate;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
-import mobile.pages.checkout.PaymentBillingAddressPage;
+import shared.pages.checkout.PaymentBillingAddressPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;

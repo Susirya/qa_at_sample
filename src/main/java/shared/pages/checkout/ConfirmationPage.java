@@ -1,10 +1,10 @@
-package desktop.pages.checkout;
+package shared.pages.checkout;
 
 import abstractClasses.page.AbstractPage;
-import shared.fragments.ConfirmationSummaryFragment;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import shared.fragments.ConfirmationSummaryFragment;
 
 public class ConfirmationPage extends AbstractPage {
     private static final String PATH = "/checkout/orderConfirmation/";

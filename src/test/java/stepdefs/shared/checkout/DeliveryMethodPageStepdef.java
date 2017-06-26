@@ -1,8 +1,8 @@
-package stepdefs.mobile.checkout;
+package stepdefs.shared.checkout;
 
 import com.google.common.base.Predicate;
 import cucumber.api.java.en.And;
-import mobile.pages.checkout.DeliveryMethodPage;
+import shared.pages.checkout.DeliveryMethodPage;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +16,9 @@ public class DeliveryMethodPageStepdef {
 
     @Page
     private DeliveryMethodPage deliveryMethodPage;
+
+
+
 
 
     @And("^I am redirected to multicheckout delivery method page$")
