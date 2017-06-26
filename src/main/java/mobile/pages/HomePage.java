@@ -13,7 +13,7 @@ public class HomePage extends AbstractMobilePage {
     @FindBy(css = "a+div>div[class='banner banner__component--responsive']")
     private WebElement bannerSlider;
 
-    @FindBy(css = ".desktop__nav .nav-items-total")
+    @FindBy(css = ".mobile__nav__row--table-row .nav-items-total")
     private WebElement minicartItemsCount;
 
 
@@ -26,8 +26,7 @@ public class HomePage extends AbstractMobilePage {
     }
 
     public boolean isItemsCountInMinicartEqualTo(int givenAmount){
-        String itemCountText = minicartItemsCount.getText();
-        int itemCount = Integer.parseInt(itemCountText.substring(0, itemCountText.length() - 6));
+        int itemCount = Integer.parseInt(minicartItemsCount.getText());
         return itemCount == givenAmount;
     }
 
